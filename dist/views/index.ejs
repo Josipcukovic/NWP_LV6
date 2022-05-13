@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title>All projects</title>
+</head> -->
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <% if (projects.length> 0) { %>
+                <div id="projectsContainer">
+                    <% projects.forEach(project=>{%>
+                        <div id="singleProject">
+                            <a class="single" href="/project/<%= project._id %>">
+                                <p class="removeTop">
+                                    <b>Project Name:</b>
+                                    <%=project.projectName%>
+                                </p>
+                                <p>
+                                    <b>Description:</b>
+                                    <%=project.description%>
+                                </p>
+                                <p>
+                                    <b>Start date:</b>
+                                    <%= new Date(project.startDate).toLocaleDateString()%>
+                                </p>
+                                <p>
+                                    <b>End date:</b>
+                                    <%= new Date(project.endDate).toLocaleDateString()%>
+                                </p>
+                                <p class="removeBottom">
+                                    <b>cost:</b>
+                                    <%=project.cost%>
+                                </p>
+                            </a>
+                        </div>
+                        <%})%>
+                </div>
+                <% } else { %>
+                    <p>There are no projects to display...</p>
+                    <% } %>
+    </body>
+
+    </html>
