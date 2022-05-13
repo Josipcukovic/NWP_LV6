@@ -1,5 +1,3 @@
-# News portal
-
 ## Description
 
 This project is built in NodeJS for laboratory exercises.
